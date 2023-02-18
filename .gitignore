@@ -1,1 +1,15 @@
 *.pdf
+docs/
+
+*.uvguix.F_188
+*.d
+*.htm
+*.axf
+*.crf
+*.dep
+*.hex
+*.map
+*.lnp
+*.o
+*.sct
+*.

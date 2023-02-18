@@ -7,6 +7,7 @@ Design of intelligent classroom fire monitoring system based on Internet of Thin
 2. 硬件选型 Hardware Selection
 3. 软件设计 Software Design
 4. 系统框架 System Framework
+5. PCB设计 PCB
 
 ## Introduction
 
@@ -88,5 +89,12 @@ flowchart LR
 
 
 
+## PCB
 
+**原理图**
 
+![sch](figures/SCH_Schematic1_0-P1_2023-02-18.png)
+
+**PCB**
+
+![](figures/3D_PCB1_2023-02-18.png)
