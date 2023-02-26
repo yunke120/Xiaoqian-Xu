@@ -1,30 +1,37 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "bsp_ds18b20.h"
+#include "bsp_flamesensor.h"
+#include "bsp_hcsr501.h"
+#include "bsp_zp13.h"
+#include "bsp_lora.h"
+#include "bsp_relay.h"
+#include "bsp_beep.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +63,12 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/*
+   8 7 6 5 4 3 2 1 0
+  TmpH TmpL 14 01 00
+
+*/
+
 /* USER CODE END 0 */
 
 /**
@@ -65,7 +78,13 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	uint32_t cnt = 0;
+	uint8_t people;
+	uint8_t smoke = 0;
+	int ret = 1;
+	uint16_t temp = 0;
+	uint8_t tmpH,tmpL;;
+	uint8_t LORA_SENDBUF[LORA_SENDBUF_LEN];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -87,21 +106,107 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
+  //MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+#ifdef USING_DS18B20
+		ret = 1;
+	  while(ret)
+	  {
+		  ret = DS18B20_Init();
+		  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+		  HAL_Delay(200);
+	  }
+	  printf("DS18B20 Init Success!\r\n");
+#endif
+	  
+#ifdef USING_LORA
+	  ret = 1;
+	  while(ret)
+	  {
+		  ret = lora_init();
+		  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+		  HAL_Delay(200);
+	  }
+	  printf("Lora Init Success!\r\n");
+#endif
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	  HAL_Delay(1000);
-	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	  HAL_Delay(1000);
+#ifdef USING_DS18B20
+	temp = DS18B20_Get_Temp(); /* 获取温度值 */
+	tmpH = (temp >> 8) & 0x00FF;
+	tmpL = (temp >> 0) & 0x00FF;
+	printf("temp = %d\r\n", temp);
+#endif
+#ifdef USING_FLAMESENSOR
+
+	people = exist_people();
+	  if(people == 1)
+	  {
+		  printf("exist people %d\r\n", cnt);
+	  }
+	  else
+	  {
+		  printf("not exist people %d\r\n", cnt);
+	  }
+
+
+//	HAL_ADC_Start(&hadc1);         /* 开启ADC转换 */
+//	if(HAL_OK == HAL_ADC_PollForConversion(&hadc1, 50)) /* 等待转换完成 */
+//	{
+//		val = HAL_ADC_GetValue(&hadc1); /* 获取ADC值 */
+//	}
+//	HAL_ADC_Stop(&hadc1); /* 关闭ADC转换 */
+//	  printf("adc = %f\r\n", val/4096.0*3.3);
+#endif
+
+#ifdef USING_ZP13
+	 
+	smoke = exist_smoke();
+	if(smoke)
+	{
+		printf("exist smoke %d\r\n", cnt);
+	}
+	else
+	{
+		printf("not exist smoke %d\r\n", cnt);
+	}
+	  
+#endif
+	  
+#ifdef USING_LORA
+	LORA_SENDBUF[0] = 0x00;
+	LORA_SENDBUF[1] = MASTER_ADDR;
+	LORA_SENDBUF[2] = MASTER_CHANNEL;
+	LORA_SENDBUF[3] = tmpH;
+	LORA_SENDBUF[4] = tmpL;
+	
+	lora_send(LORA_SENDBUF, LORA_SENDBUF_LEN);
+	
+	
+#endif
+	  
+#ifdef USING_RELAY
+	open_relay();
+	HAL_Delay(1000);
+	close_relay();
+#endif
+
+#ifdef USING_BEEP
+	open_beep();
+	HAL_Delay(1000);
+	close_beep();
+#endif
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	cnt ++;
+	  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -114,6 +219,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -139,6 +245,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

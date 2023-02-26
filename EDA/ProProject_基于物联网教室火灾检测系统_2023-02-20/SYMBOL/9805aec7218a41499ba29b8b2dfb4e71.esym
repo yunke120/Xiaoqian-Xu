@@ -1,0 +1,5 @@
+["DOCTYPE","SYMBOL","1.1"]
+["HEAD",{"originX":0,"originY":0,"version":"1.9.25.05ef775a","maxId":12,"symbolType":2}]
+["PART","定位孔.1",{"BBOX":[-10,10,10,-10]}]
+["LINESTYLE","st1",null,null,null,null]
+["CIRCLE","e12",0,0,10,"st1",0]

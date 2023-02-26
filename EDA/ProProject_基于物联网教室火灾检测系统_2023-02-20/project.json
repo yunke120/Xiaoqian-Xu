@@ -1,0 +1,512 @@
+{
+  "schematics": {
+    "0f2daa1b8b8042ba8d2f1fd0d252c330": {
+      "name": "Schematic1",
+      "sheets": [
+        {
+          "name": "P1",
+          "id": 1
+        }
+      ]
+    }
+  },
+  "pcbs": {
+    "14146bd6bcf342a6a02126ae4844dd9f": "PCB1"
+  },
+  "panels": {},
+  "symbols": {
+    "0127d876c56b473ca3f66e46bbfa9c59": {
+      "source": "2f42d1548379462b8b830e0d1f7738bb",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "2.54MM间距单排插针3P/高度11MM",
+      "version": "1667420180",
+      "type": 2
+    },
+    "1455d3f2c2454447b24ee568f141cd80": {
+      "source": "27b3b0387d9d4e30a566a2a0373ce7f7",
+      "desc": "2.54mm 2*3P",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "Header-Male-2.54_2x3",
+      "version": "1672396203",
+      "type": 2
+    },
+    "44ea7ba16fd14422a52ab11b6d81fe66": {
+      "source": "1f973f4b6caf4995b6c00cc127e6fe9e",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "长排针,2.54MM,6P",
+      "version": "1673124772",
+      "type": 2
+    },
+    "8d81d82934ea472d9e5bee1ba73f5a78": {
+      "source": "00ba0e1d1a974fccb90867f6b0fc428c",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "STM32F103C8T6最小系统板",
+      "version": "1649906687",
+      "type": 2
+    },
+    "8ed1fd91add6477482fff4953ccf5c26": {
+      "source": "542d01b8b25e4236a453d7437c3944df",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "Ground-GND",
+      "version": "1642995718",
+      "type": 18
+    },
+    "97c6c385fc554558988430ce1e612388": {
+      "source": "261d4abe060a470692a0c899bbcdabc6",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "SIP4-CON4排针",
+      "version": "1673124340",
+      "type": 2
+    },
+    "9805aec7218a41499ba29b8b2dfb4e71": {
+      "source": "610d9107e8e44aaa9ff5b92cd2202b92",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "定位孔",
+      "version": "1672213651",
+      "type": 2
+    },
+    "9c5991bf085c48a0bf1c436da1e31e3e": {
+      "source": "f2baecf085944dad81faf9a0fd6bfcea",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "Sheet-Symbol_A4",
+      "version": "1664282381",
+      "type": 20
+    },
+    "dc6d2a1368214a5aabf181eefb0d7fb9": {
+      "source": "6f8cc47a30c240bbb979c211cee8d9f2",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "Sheet-Symbol_A3",
+      "version": "1661248185",
+      "type": 20
+    },
+    "dc730b8f6dd445a695b44721f6eacd7d": {
+      "source": "a59dc7583a2348238cebe1ff423d5b1f",
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "title": "Sheet-Symbol_A5",
+      "version": "1661248207",
+      "type": 20
+    },
+    "ff57cfb807634e8a9889c86bc5156d6d": {
+      "source": "7808db85c4ec4a4c997ec8b1628d1863",
+      "desc": "",
+      "tags": {
+        "parent_tag": {
+          "uuid": "0d7e26caee1047cdbc9cdf397853fcc8",
+          "name": "最小系统",
+          "name_cn": ""
+        },
+        "child_tag": {
+          "uuid": "8724bc5310fa46a7ad95fa313e4c9b58",
+          "name": "Esp32",
+          "name_cn": ""
+        }
+      },
+      "title": "Esp32-DevKitC开发板",
+      "version": "1650198559",
+      "type": 2
+    }
+  },
+  "footprints": {
+    "3f6d9b8d1cc64b2f93982cd1650b9e60": {
+      "title": "HDR-TH_6P-P2.54-V-M-A",
+      "source": "ab79f36e3fa24df1b5814eb3ccbfe926",
+      "version": "1656060054",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      }
+    },
+    "44b233e1b6c74c489865969e02dfa48b": {
+      "title": "M3定位孔",
+      "source": "15ad829d7d2642bda7c99cc7e06674d9",
+      "version": "1672213652",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      }
+    },
+    "73963a2df5c04d248f612ca85eba19ed": {
+      "title": "HDR-TH_6P-P2.54-V-M-R2-C3-S2.54-1",
+      "source": "6156062f75924b9e909cf247471e0f67",
+      "version": "1653374269",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      }
+    },
+    "928eaa57270f4619bcb066fed2939e19": {
+      "title": "HDR-TH_4P-P2.54-V-M-3",
+      "source": "7fc0c18993b44d4d947ed775f9118ef9",
+      "version": "1637374248",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      }
+    },
+    "92fde70116ce4ea5bb16a129ceceddee": {
+      "title": "HDR-TH_3P-P2.54-V-M",
+      "source": "c3d82bacc07f4aa18ec3291422b5896d",
+      "version": "1651895109",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      }
+    },
+    "dfc1ebd431be4b40843b37af09d230c5": {
+      "title": "STM32F103C8T6最小系统",
+      "source": "7f63e1ad74464c42a792635bc548ae87",
+      "version": "1649910200",
+      "type": 4,
+      "desc": "",
+      "tags": {
+        "parent_tag": {
+          "uuid": "2fd09aba342d4102a52724cf839e7c58",
+          "name": "最小系统",
+          "name_cn": ""
+        },
+        "child_tag": {
+          "uuid": "3e229de1e7c24547aece2c049edab1c8",
+          "name": "STM32F103C8T6",
+          "name_cn": ""
+        }
+      }
+    }
+  },
+  "devices": {
+    "0394ed4d043f4282b678969099ac4920": {
+      "title": "Sheet-Symbol_A3",
+      "attributes": {
+        "Symbol": "dc6d2a1368214a5aabf181eefb0d7fb9",
+        "@Page Name": "",
+        "@Create Date": "",
+        "@Page Count": "",
+        "@Page No": "",
+        "@Project Name": "",
+        "@Schematic Name": "",
+        "@Update Date": "",
+        "Company": "嘉立创EDA",
+        "Device": "",
+        "Drawed": "",
+        "Page Size": "A3",
+        "Part Number": "",
+        "Reviewed": "",
+        "Version": "V1.0",
+        "Footprint": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "676a8365af904311a185ea8ec41d2bdc": {
+      "title": "2.54MM间距单排插针3P/高度11mm",
+      "attributes": {
+        "LCSC Part Name": "2.54MM间距单排插针3P/高度11mm",
+        "Supplier Part": "C9900010938",
+        "Manufacturer": "",
+        "Manufacturer Part": "2.54MM间距单排插针3P/高度11mm",
+        "Supplier Footprint": "2.54MM间距单排插针3P/高度11mm",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "https://atta.szlcsc.comnull",
+        "Supplier": "LCSC",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Symbol": "0127d876c56b473ca3f66e46bbfa9c59",
+        "Designator": "U?",
+        "Footprint": "92fde70116ce4ea5bb16a129ceceddee",
+        "3D Model": "bb473b6d38ff42a99216a4fcdbdcc4cb",
+        "3D Model Title": "HDR-TH_3P-P2.54-M-LI-1X3P",
+        "3D Model Transform": "299.9994,100,0,0,0,0,0,0,-118.11",
+        "Name": "={Manufacturer Part}",
+        "Description": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "7e983cb2227d465faa72d8f3133bac9a": {
+      "title": "定位孔",
+      "attributes": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Symbol": "9805aec7218a41499ba29b8b2dfb4e71",
+        "Designator": "U?",
+        "Footprint": "44b233e1b6c74c489865969e02dfa48b",
+        "_": "3",
+        "Description": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "944d4e2e8d574e2194c72f05e203bafd": {
+      "title": "Sheet-Symbol_A5",
+      "attributes": {
+        "Symbol": "dc730b8f6dd445a695b44721f6eacd7d",
+        "@Page Name": "",
+        "@Create Date": "",
+        "@Page Count": "",
+        "@Page No": "",
+        "@Project Name": "",
+        "@Schematic Name": "",
+        "@Update Date": "",
+        "Company": "嘉立创EDA",
+        "Device": "",
+        "Drawed": "",
+        "Page Size": "A5",
+        "Part Number": "",
+        "Reviewed": "",
+        "Version": "V1.0",
+        "Footprint": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "96302d9252b24e1d8f5e4a295c1fd109": {
+      "title": "长排针,2.54mm,6p",
+      "attributes": {
+        "LCSC Part Name": "长排针,2.54mm,6p",
+        "Supplier Part": "C9900021383",
+        "Manufacturer": "",
+        "Manufacturer Part": "长排针,2.54mm,6p",
+        "Supplier Footprint": "HDR-TH_6P-P2.54-V-M",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "https://atta.szlcsc.comnull",
+        "Supplier": "LCSC",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Symbol": "44ea7ba16fd14422a52ab11b6d81fe66",
+        "Designator": "U?",
+        "Footprint": "3f6d9b8d1cc64b2f93982cd1650b9e60",
+        "3D Model": "ea2ef9880dfc49608331d2ca44c2c29d",
+        "3D Model Title": "HDR-TH_6P-P2.54-V-M-A",
+        "3D Model Transform": "599.9988,98.8187,0,0,0,0,0,0,-118.11",
+        "Name": "={Manufacturer Part}",
+        "Description": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "a1ae199b0ad3406893bf2267a96ed44c": {
+      "title": "STM32F103C8T6最小系统板",
+      "attributes": {
+        "Symbol": "8d81d82934ea472d9e5bee1ba73f5a78",
+        "Designator": "U?",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Footprint": "dfc1ebd431be4b40843b37af09d230c5",
+        "Description": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "b797590095914f94885bcb3af630adad": {
+      "title": "SIP4-CON4排针",
+      "attributes": {
+        "LCSC Part Name": "SIP4-CON4排针",
+        "Supplier Part": "C9900002129",
+        "Manufacturer": "",
+        "Manufacturer Part": "SIP4-CON4排针",
+        "Supplier Footprint": "SIP-4_2.54X10.16X2.54P",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Symbol": "97c6c385fc554558988430ce1e612388",
+        "Designator": "U?",
+        "Footprint": "928eaa57270f4619bcb066fed2939e19",
+        "3D Model": "8f992ffc0bd944c6961f69f25c8aaa5a",
+        "3D Model Title": "HDR-TH_4P-P2.54-V-M-3",
+        "3D Model Transform": "399.999,100,0,0,0,0,0,0,-137.795",
+        "Name": "={Manufacturer Part}",
+        "Description": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "ca4d49c5794c4eb4b9556d7c50aa7d03": {
+      "title": "Sheet-Symbol_A4",
+      "attributes": {
+        "Symbol": "9c5991bf085c48a0bf1c436da1e31e3e",
+        "@Page Name": "",
+        "@Create Date": "",
+        "@Page Count": "",
+        "@Page No": "",
+        "@Project Name": "",
+        "@Schematic Name": "",
+        "@Update Date": "",
+        "Company": "嘉立创EDA",
+        "Device": "",
+        "Drawed": "",
+        "Page Size": "A4",
+        "Part Number": "",
+        "Reviewed": "",
+        "Version": "V1.0",
+        "Footprint": ""
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "cc8806e3dd984e26b8269d56574b07d5": {
+      "title": "Ground-GND",
+      "attributes": {
+        "Symbol": "8ed1fd91add6477482fff4953ccf5c26"
+      },
+      "description": "",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "f697567080cc4a93b77f96157e4f51e8": {
+      "title": "2.54-2*3P针",
+      "attributes": {
+        "LCSC Part Name": "2.54mm 直插",
+        "Supplier Part": "C65114",
+        "Manufacturer": "BOOMELE(博穆精密)",
+        "Manufacturer Part": "2.54-2*3P针",
+        "Supplier Footprint": "插件,P=2.54mm",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Symbol": "1455d3f2c2454447b24ee568f141cd80",
+        "Designator": "J?",
+        "Footprint": "73963a2df5c04d248f612ca85eba19ed",
+        "3D Model": "fd1b55b786fb415ca65c4187088147b7",
+        "3D Model Title": "HDR2.54-M-LI-2x3P",
+        "3D Model Transform": "299.9994,200,0,0,0,0,0,0,-118.11",
+        "Number of Rows": "双排",
+        "Number of Pins": "6",
+        "Pitch": "2.54mm",
+        "Pin Structure": "-",
+        "Row Spacing": "-",
+        "Mounting Type": "直插",
+        "Circluar Pins/Square Pins": "-",
+        "Current Rating (Max)": "-",
+        "Voltage Rating (Max)": "-",
+        "Length of Mating Pin": "-",
+        "Insulation Height": "-",
+        "Contact Material": "-",
+        "Contact Plating": "-",
+        "Color": "黑色",
+        "Name": "={Manufacturer Part}",
+        "Description": "排数:双排;总PIN位数:6;间距:2.54mm;插针结构:-;行距:-;安装类型:直插;圆针/方针:-;额定电流:-;额定电压:-;配合针长度:-;塑高:-;触头材质:-;触头镀层:-;颜色:黑色;"
+      },
+      "description": "排数:双排;总PIN位数:6;间距:2.54mm;插针结构:-;行距:-;安装类型:直插;圆针/方针:-;额定电流:-;额定电压:-;配合针长度:-;塑高:-;触头材质:-;触头镀层:-;颜色:黑色;",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    },
+    "fc709793c5314cfa8e78f6d7c33da75d": {
+      "title": "Esp32-DevKitC开发板",
+      "attributes": {
+        "Symbol": "ff57cfb807634e8a9889c86bc5156d6d",
+        "Designator": "B?",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Footprint": "",
+        "Description": "ESP32-DevKitC开发板 搭载WROOM-32D/U模块"
+      },
+      "description": "ESP32-DevKitC开发板 搭载WROOM-32D/U模块",
+      "tags": {
+        "parent_tag": [],
+        "child_tag": []
+      },
+      "images": []
+    }
+  },
+  "boards": {
+    "Board1": {
+      "schematic": "0f2daa1b8b8042ba8d2f1fd0d252c330",
+      "pcb": "14146bd6bcf342a6a02126ae4844dd9f"
+    }
+  },
+  "config": {
+    "title": "基于物联网教室火灾检测系统",
+    "cbbProject": false,
+    "defaultSheet": "0394ed4d043f4282b678969099ac4920"
+  }
+}
