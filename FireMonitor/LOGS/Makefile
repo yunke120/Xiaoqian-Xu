@@ -231,6 +231,7 @@ Makefile: ../FireMonitor.pro G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/toolchain.prf \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/default_pre.prf \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/win32/default_pre.prf \
+		../QSidePanel/q_side_panel.pri \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/resolve_config.prf \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/exclusive_builds_post.prf \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/default_post.prf \
@@ -425,6 +426,7 @@ G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/exclusive_builds.prf:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/toolchain.prf:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/default_pre.prf:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/win32/default_pre.prf:
+../QSidePanel/q_side_panel.pri:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/resolve_config.prf:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/exclusive_builds_post.prf:
 G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/default_post.prf:

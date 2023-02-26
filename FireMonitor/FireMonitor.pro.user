@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.1, 2023-02-26T15:00:11. -->
+<!-- Written by QtCreator 4.9.1, 2023-02-26T19:34:27. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -317,7 +317,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/bin</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

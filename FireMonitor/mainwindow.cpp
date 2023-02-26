@@ -4,6 +4,7 @@
 #include <QDateTime>
 #include <QPen>
 #include <QDebug>
+#include <QButtonGroup>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,7 +13,32 @@ MainWindow::MainWindow(QWidget *parent) :
 
     chartInit();
     serialInit();
+    tablewidgetInit();
 
+    ui->scrollArea->initialHandlerSize = []() -> QSize
+    {
+        return {15, 30};
+    };
+    ui->scrollArea->setOpenEasingCurve(QEasingCurve::Type::OutElastic);
+    ui->scrollArea->setCloseEasingCurve(QEasingCurve::Type::InElastic);
+    ui->scrollArea->init();
+
+    QButtonGroup *pbtnGroup = new QButtonGroup(this);
+    pbtnGroup->addButton(ui->btn1, 0);
+    pbtnGroup->addButton(ui->btn2, 1);
+    pbtnGroup->addButton(ui->btn3, 2);
+    pbtnGroup->addButton(ui->btnSet, 3);
+    connect(pbtnGroup, QOverload<int>::of(&QButtonGroup::buttonClicked),
+            [=](int id)
+            {
+                ui->stackedWidget->setCurrentIndex(id);
+            });
+    ui->btn4->setEnabled(false);
+    ui->btn5->setEnabled(false);
+    ui->btn6->setEnabled(false);
+    ui->btn7->setEnabled(false);
+    ui->btn8->setEnabled(false);
+    ui->btn9->setEnabled(false);
 
 //    ui->btnWindow->setStyleSheet("QPushButton{border-image:url(:/imgs/off.png);}");
 
@@ -28,8 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
         double temp = QRandomGenerator::global()->bounded(20,45) + QRandomGenerator::global()->bounded(0.5);
         pSplineSeriesTemp->append(curDateTime.toMSecsSinceEpoch(), temp);
-        temp = QRandomGenerator::global()->bounded(10,30) + QRandomGenerator::global()->bounded(0.5);
-        pSplineSeriesHumi->append(curDateTime.toMSecsSinceEpoch(), temp);
 
     });
 }
@@ -44,9 +68,7 @@ void MainWindow::chartInit()
 {
     pChartTemp = new QChart;
     pSplineSeriesTemp = new QSplineSeries(this);
-    pSplineSeriesHumi = new QSplineSeries(this);
     pSplineSeriesTemp->setName("Temperature");
-    pSplineSeriesHumi->setName("Humidity");
 
     QDateTime curDateTime = QDateTime::currentDateTime();
     qint64 startTimeT = curDateTime.toSecsSinceEpoch() -55;
@@ -71,39 +93,21 @@ void MainWindow::chartInit()
     QPen pen(Qt::green, 1, Qt::SolidLine, Qt::SquareCap, Qt::RoundJoin);
     pSplineSeriesTemp->setPen(pen);
 
-    m_HumiY = new QValueAxis(this);
-    m_HumiY->setRange(0,100);
-    m_HumiY->setTickCount(15);
-    m_HumiY->setTitleText("RH");
-    m_HumiY->setLabelFormat("%4.2f");
-    m_HumiY->setLinePenColor(Qt::red);
-    m_HumiY->setTitleBrush(Qt::red);
-    QPen pen2(Qt::red, 1, Qt::SolidLine, Qt::SquareCap, Qt::RoundJoin);
-    pSplineSeriesTemp->setPen(pen2);
-
     pChartTemp->setAnimationOptions(QChart::SeriesAnimations);
-    pChartTemp->setTitle("Temperature & Humidity");
+    pChartTemp->setTitle("Temperature");
     pChartTemp->setTheme(QChart::ChartTheme::ChartThemeDark);
 
     pChartTemp->addAxis(m_AxisX, Qt::AlignBottom);
     pChartTemp->addAxis(m_TempY, Qt::AlignLeft);
-    pChartTemp->addAxis(m_HumiY, Qt::AlignRight);
     pChartTemp->legend()->hide();
 
     pChartTemp->addSeries(pSplineSeriesTemp);
-    pChartTemp->addSeries(pSplineSeriesHumi);
 
     pSplineSeriesTemp->attachAxis(m_AxisX);
     pSplineSeriesTemp->attachAxis(m_TempY);
 
-    pSplineSeriesHumi->attachAxis(m_AxisX);
-    pSplineSeriesHumi->attachAxis(m_HumiY);
-
     ui->chartTemp->setRenderHint(QPainter::Antialiasing);
     ui->chartTemp->setChart(pChartTemp);
-
-
-
 }
 
 void MainWindow::serialInit()
@@ -177,4 +181,35 @@ void MainWindow::on_btnLed_clicked()
 void MainWindow::on_btnBeep_clicked()
 {
     pTimer->start(1000);
+}
+
+
+void MainWindow::tablewidgetInit()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(10);
+    QHeaderView *headerViewLie = ui->tableWidget->verticalHeader();
+    headerViewLie->setHidden(1); /* 不显示tableWidget自带序号 */
+    QStringList headerHeng;
+    headerHeng << QStringLiteral("教室")
+               << QStringLiteral("通信地址")
+               << QStringLiteral("通信通道")
+               << QStringLiteral("温度值")
+               << QStringLiteral("烟雾")
+               << QStringLiteral("火焰")
+               << QStringLiteral("报警")
+               << QStringLiteral("人员");
+    ui->tableWidget->setColumnCount(headerHeng.size());
+    ui->tableWidget->setAlternatingRowColors(true);
+    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setHorizontalHeaderLabels(headerHeng);
+    ui->tableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:lightgreen;}");
+    ui->tableWidget->horizontalHeader()->setMinimumHeight(50);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+
+    ui->tableWidget->verticalHeader()->setDefaultSectionSize(30);
+    for (int i = 0; i < headerHeng.size(); i++)
+    {
+        ui->tableWidget->horizontalHeader()->setSectionResizeMode(i, QHeaderView::Stretch);
+    }
 }

@@ -142,7 +142,7 @@ int main(void)
 	tmpL = (temp >> 0) & 0x00FF;
 	printf("temp = %d\r\n", temp);
 #endif
-#ifdef USING_FLAMESENSOR
+#ifdef USING_HCSR501
 
 	people = exist_people();
 	  if(people == 1)

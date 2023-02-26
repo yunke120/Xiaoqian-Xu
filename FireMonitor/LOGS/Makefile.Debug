@@ -16,7 +16,7 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_DEPRECATED_WARNINGS -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -W -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\..\FireMonitor -I. -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtCharts -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtWidgets -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtGui -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtANGLE -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtSerialPort -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtCore -Idebug -I. -I\include -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\win32-g++ 
+INCPATH       = -I..\..\FireMonitor -I. -I..\QSidePanel -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtCharts -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtWidgets -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtGui -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtANGLE -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtSerialPort -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\include\QtCore -Idebug -I. -I\include -IG:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
 LIBS        =        G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libQt5Chartsd.a G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libQt5Widgetsd.a G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libQt5Guid.a G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libQt5SerialPortd.a G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libQt5Cored.a  -lmingw32 G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\libqtmaind.a -LC:\openssl\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
@@ -47,34 +47,76 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\gcled.cpp \
+SOURCES       = ..\QSidePanel\QSidePanel\PanelBottomSide.cpp \
+		..\QSidePanel\QSidePanel\PanelLeftSide.cpp \
+		..\QSidePanel\QSidePanel\PanelRightSide.cpp \
+		..\QSidePanel\QSidePanel\PanelTopSide.cpp \
+		..\QSidePanel\QSidePanel\SidePanel.cpp \
+		..\QSidePanel\QSidePanel\SidePanelState.cpp \
+		..\QSidePanel\QSidePanel\math.cpp \
+		..\QSidePanel\QSidePanel\side_panel_helpers.cpp \
+		..\gcled.cpp \
 		..\main.cpp \
 		..\mainwindow.cpp debug\qrc_resources.cpp \
+		debug\moc_PanelBottomSide.cpp \
+		debug\moc_PanelLeftSide.cpp \
+		debug\moc_PanelRightSide.cpp \
+		debug\moc_PanelTopSide.cpp \
+		debug\moc_SidePanel.cpp \
 		debug\moc_gcled.cpp \
 		debug\moc_mainwindow.cpp
-OBJECTS       = debug/gcled.o \
+OBJECTS       = debug/PanelBottomSide.o \
+		debug/PanelLeftSide.o \
+		debug/PanelRightSide.o \
+		debug/PanelTopSide.o \
+		debug/SidePanel.o \
+		debug/SidePanelState.o \
+		debug/math.o \
+		debug/side_panel_helpers.o \
+		debug/gcled.o \
 		debug/main.o \
 		debug/mainwindow.o \
 		debug/qrc_resources.o \
+		debug/moc_PanelBottomSide.o \
+		debug/moc_PanelLeftSide.o \
+		debug/moc_PanelRightSide.o \
+		debug/moc_PanelTopSide.o \
+		debug/moc_SidePanel.o \
 		debug/moc_gcled.o \
 		debug/moc_mainwindow.o
 
-DIST          =  ..\gcled.h \
-		..\mainwindow.h ..\gcled.cpp \
+DIST          =  ..\QSidePanel\QSidePanel\PanelBottomSide.hpp \
+		..\QSidePanel\QSidePanel\PanelLeftSide.hpp \
+		..\QSidePanel\QSidePanel\PanelRightSide.hpp \
+		..\QSidePanel\QSidePanel\PanelTopSide.hpp \
+		..\QSidePanel\QSidePanel\SidePanel.hpp \
+		..\QSidePanel\QSidePanel\SidePanelState.hpp \
+		..\QSidePanel\QSidePanel\math.hpp \
+		..\QSidePanel\QSidePanel\side_panel_helpers.hpp \
+		..\gcled.h \
+		..\mainwindow.h ..\QSidePanel\QSidePanel\PanelBottomSide.cpp \
+		..\QSidePanel\QSidePanel\PanelLeftSide.cpp \
+		..\QSidePanel\QSidePanel\PanelRightSide.cpp \
+		..\QSidePanel\QSidePanel\PanelTopSide.cpp \
+		..\QSidePanel\QSidePanel\SidePanel.cpp \
+		..\QSidePanel\QSidePanel\SidePanelState.cpp \
+		..\QSidePanel\QSidePanel\math.cpp \
+		..\QSidePanel\QSidePanel\side_panel_helpers.cpp \
+		..\gcled.cpp \
 		..\main.cpp \
 		..\mainwindow.cpp
 QMAKE_TARGET  = FireMonitor
-DESTDIR        = debug\ #avoid trailing-slash linebreak
+DESTDIR        = ..\bin\ #avoid trailing-slash linebreak
 TARGET         = FireMonitor.exe
-DESTDIR_TARGET = debug\FireMonitor.exe
+DESTDIR_TARGET = ..\bin\FireMonitor.exe
 
 ####### Build rules
 
 first: all
-all: Makefile.Debug  debug/FireMonitor.exe
+all: Makefile.Debug  ../bin/FireMonitor.exe
 
-debug/FireMonitor.exe: G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Chartsd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Widgetsd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Guid.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5SerialPortd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Cored.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libqtmaind.a ui_mainwindow.h $(OBJECTS) 
-	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+../bin/FireMonitor.exe: G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Chartsd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Widgetsd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Guid.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5SerialPortd.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libQt5Cored.a G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/lib/libqtmaind.a ui_mainwindow.h $(OBJECTS) 
+	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.FireMonitor.Debug  $(LIBS)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Debug ..\FireMonitor.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
@@ -82,10 +124,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) FireMonitor.zip $(SOURCES) $(DIST) ..\..\FireMonitor.pro G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\spec_pre.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\qdevice.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\device_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\sanitize.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\gcc-base.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\g++-base.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\angle.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\windows_vulkan_sdk.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\windows-vulkan.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\g++-win32.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\windows-desktop.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\qconfig.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3danimation.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3danimation_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dcore.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dcore_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dinput.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dinput_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dlogic.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dlogic_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickinput.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickinput_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickrender.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickrender_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3drender.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3drender_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_accessibility_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axbase.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axbase_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axcontainer.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axcontainer_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axserver.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axserver_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bluetooth.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bluetooth_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bodymovin_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bootstrap_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_charts.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_charts_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_concurrent.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_concurrent_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_core.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_core_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_datavisualization.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_datavisualization_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_dbus.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_dbus_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designer.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designer_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designercomponents_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_edid_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_egl_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_fb_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gamepad.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gamepad_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gui.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gui_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_help.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_help_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_location.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_location_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimedia.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimedia_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_network.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_network_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_networkauth.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_networkauth_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_nfc.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_nfc_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_opengl.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_opengl_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_openglextensions.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_openglextensions_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_packetprotocol_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioning.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioning_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioningquick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioningquick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_printsupport.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_printsupport_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_purchasing.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_purchasing_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmldebug_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmldevtools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmltest.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmltest_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickparticles_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickshapes_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickwidgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickwidgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_remoteobjects.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_remoteobjects_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_repparser.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_repparser_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_script.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_script_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scripttools.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scripttools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scxml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scxml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sensors.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sensors_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialbus.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialbus_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialport.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialport_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sql.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sql_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_svg.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_svg_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_testlib.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_testlib_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_texttospeech.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_texttospeech_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_theme_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uiplugin.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uitools.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uitools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_virtualkeyboard.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_vulkan_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_webchannel.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_webchannel_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_websockets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_websockets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_widgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_widgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_winextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_winextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt_functions.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\win32-g++\qmake.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\spec_post.prf .qmake.stash G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exclusive_builds.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\toolchain.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\default_pre.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\default_pre.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\resolve_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exclusive_builds_post.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\default_post.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\build_pass.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\resources.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qtquickcompiler.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\precompile_header.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\warn_on.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\moc.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\opengl.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\uic.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qmake_use.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\file_copies.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\windows.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\testcase_targets.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exceptions.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\yacc.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\lex.prf ..\FireMonitor.pro ..\resources.qrc G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Chartsd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Widgetsd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Guid.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5SerialPortd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Cored.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\qtmaind.prl  ..\resources.qrc    G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\data\dummy.cpp ..\gcled.h ..\mainwindow.h  ..\gcled.cpp ..\main.cpp ..\mainwindow.cpp ..\mainwindow.ui    
+	$(ZIP) FireMonitor.zip $(SOURCES) $(DIST) ..\..\FireMonitor.pro G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\spec_pre.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\qdevice.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\device_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\sanitize.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\gcc-base.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\g++-base.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\angle.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\windows_vulkan_sdk.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\windows-vulkan.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\g++-win32.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\common\windows-desktop.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\qconfig.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3danimation.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3danimation_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dcore.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dcore_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dinput.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dinput_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dlogic.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dlogic_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickinput.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickinput_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickrender.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickrender_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3drender.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_3drender_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_accessibility_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axbase.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axbase_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axcontainer.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axcontainer_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axserver.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_axserver_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bluetooth.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bluetooth_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bodymovin_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_bootstrap_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_charts.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_charts_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_concurrent.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_concurrent_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_core.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_core_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_datavisualization.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_datavisualization_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_dbus.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_dbus_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designer.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designer_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_designercomponents_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_edid_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_egl_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_fb_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gamepad.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gamepad_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gui.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_gui_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_help.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_help_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_location.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_location_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimedia.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimedia_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_network.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_network_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_networkauth.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_networkauth_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_nfc.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_nfc_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_opengl.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_opengl_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_openglextensions.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_openglextensions_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_packetprotocol_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioning.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioning_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioningquick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_positioningquick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_printsupport.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_printsupport_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_purchasing.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_purchasing_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmldebug_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmldevtools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmltest.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qmltest_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quick.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quick_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickparticles_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickshapes_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickwidgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_quickwidgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_remoteobjects.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_remoteobjects_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_repparser.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_repparser_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_script.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_script_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scripttools.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scripttools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scxml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_scxml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sensors.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sensors_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialbus.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialbus_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialport.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_serialport_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sql.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_sql_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_svg.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_svg_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_testlib.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_testlib_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_texttospeech.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_texttospeech_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_theme_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uiplugin.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uitools.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_uitools_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_virtualkeyboard.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_vulkan_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_webchannel.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_webchannel_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_websockets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_websockets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_widgets.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_widgets_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_winextras.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_winextras_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xml.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xml_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt_functions.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\win32-g++\qmake.conf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\spec_post.prf .qmake.stash G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exclusive_builds.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\toolchain.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\default_pre.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\default_pre.prf ..\QSidePanel\q_side_panel.pri G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\resolve_config.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exclusive_builds_post.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\default_post.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\build_pass.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\resources.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qtquickcompiler.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\precompile_header.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\warn_on.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qt.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\moc.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\opengl.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\uic.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\qmake_use.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\file_copies.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\win32\windows.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\testcase_targets.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\exceptions.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\yacc.prf G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\lex.prf ..\FireMonitor.pro ..\resources.qrc G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Chartsd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Widgetsd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Guid.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5SerialPortd.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\Qt5Cored.prl G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\lib\qtmaind.prl  ..\resources.qrc    G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\data\dummy.cpp ..\QSidePanel\QSidePanel\PanelBottomSide.hpp ..\QSidePanel\QSidePanel\PanelLeftSide.hpp ..\QSidePanel\QSidePanel\PanelRightSide.hpp ..\QSidePanel\QSidePanel\PanelTopSide.hpp ..\QSidePanel\QSidePanel\SidePanel.hpp ..\QSidePanel\QSidePanel\SidePanelState.hpp ..\QSidePanel\QSidePanel\math.hpp ..\QSidePanel\QSidePanel\side_panel_helpers.hpp ..\gcled.h ..\mainwindow.h  ..\QSidePanel\QSidePanel\PanelBottomSide.cpp ..\QSidePanel\QSidePanel\PanelLeftSide.cpp ..\QSidePanel\QSidePanel\PanelRightSide.cpp ..\QSidePanel\QSidePanel\PanelTopSide.cpp ..\QSidePanel\QSidePanel\SidePanel.cpp ..\QSidePanel\QSidePanel\SidePanelState.cpp ..\QSidePanel\QSidePanel\math.cpp ..\QSidePanel\QSidePanel\side_panel_helpers.cpp ..\gcled.cpp ..\main.cpp ..\mainwindow.cpp ..\mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\gcled.o debug\main.o debug\mainwindow.o debug\qrc_resources.o debug\moc_gcled.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\PanelBottomSide.o debug\PanelLeftSide.o debug\PanelRightSide.o debug\PanelTopSide.o debug\SidePanel.o debug\SidePanelState.o debug\math.o debug\side_panel_helpers.o debug\gcled.o debug\main.o debug\mainwindow.o debug\qrc_resources.o debug\moc_PanelBottomSide.o debug\moc_PanelLeftSide.o debug\moc_PanelRightSide.o debug\moc_PanelTopSide.o debug\moc_SidePanel.o debug\moc_gcled.o debug\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -122,9 +164,618 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -dM -E -o debug\moc_predefs.h G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_gcled.cpp debug/moc_mainwindow.cpp
+compiler_moc_header_make_all: debug/moc_PanelBottomSide.cpp debug/moc_PanelLeftSide.cpp debug/moc_PanelRightSide.cpp debug/moc_PanelTopSide.cpp debug/moc_SidePanel.cpp debug/moc_gcled.cpp debug/moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_gcled.cpp debug\moc_mainwindow.cpp
+	-$(DEL_FILE) debug\moc_PanelBottomSide.cpp debug\moc_PanelLeftSide.cpp debug\moc_PanelRightSide.cpp debug\moc_PanelTopSide.cpp debug\moc_SidePanel.cpp debug\moc_gcled.cpp debug\moc_mainwindow.cpp
+debug/moc_PanelBottomSide.cpp: ../QSidePanel/QSidePanel/PanelBottomSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		debug/moc_predefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\QSidePanel\QSidePanel\PanelBottomSide.hpp -o debug\moc_PanelBottomSide.cpp
+
+debug/moc_PanelLeftSide.cpp: ../QSidePanel/QSidePanel/PanelLeftSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		debug/moc_predefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\QSidePanel\QSidePanel\PanelLeftSide.hpp -o debug\moc_PanelLeftSide.cpp
+
+debug/moc_PanelRightSide.cpp: ../QSidePanel/QSidePanel/PanelRightSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		debug/moc_predefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\QSidePanel\QSidePanel\PanelRightSide.hpp -o debug\moc_PanelRightSide.cpp
+
+debug/moc_PanelTopSide.cpp: ../QSidePanel/QSidePanel/PanelTopSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		debug/moc_predefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\QSidePanel\QSidePanel\PanelTopSide.hpp -o debug\moc_PanelTopSide.cpp
+
+debug/moc_SidePanel.cpp: ../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		debug/moc_predefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\QSidePanel\QSidePanel\SidePanel.hpp -o debug\moc_SidePanel.cpp
+
 debug/moc_gcled.cpp: ../gcled.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QObject \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
@@ -234,7 +885,7 @@ debug/moc_gcled.cpp: ../gcled.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
-	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\gcled.h -o debug\moc_gcled.cpp
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\gcled.h -o debug\moc_gcled.cpp
 
 debug/moc_mainwindow.cpp: ../mainwindow.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QMainWindow \
@@ -389,7 +1040,7 @@ debug/moc_mainwindow.cpp: ../mainwindow.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTime \
 		debug/moc_predefs.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/moc.exe
-	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\mainwindow.h -o debug\moc_mainwindow.cpp
+	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\moc.exe $(DEFINES) --include H:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/LOGS/debug/moc_predefs.h -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/mkspecs/win32-g++ -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor -IH:/repository/MyRepository/SCM/Xiaoqian-Xu/FireMonitor/QSidePanel -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtANGLE -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtSerialPort -IG:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore -I. -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IG:/RJAZ/QT/Qt_data/Tools/mingw730_64/x86_64-w64-mingw32/include ..\mainwindow.h -o debug\moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -402,6 +1053,7 @@ ui_mainwindow.h: ../mainwindow.ui \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/bin/uic.exe \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts/qchartview.h \
 		../gcled.h \
+		../QSidePanel/QSidePanel/PanelLeftSide.hpp \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts/QAbstractAxis \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts/qabstractaxis.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCharts/QChartGlobal \
@@ -639,7 +1291,124 @@ ui_mainwindow.h: ../mainwindow.ui \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
-		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp
 	G:\RJAZ\QT\Qt_data\5.13.0\mingw73_64\bin\uic.exe ..\mainwindow.ui -o ui_mainwindow.h
 
 compiler_yacc_decl_make_all:
@@ -653,6 +1422,685 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 
 ####### Compile
+
+debug/PanelBottomSide.o: ../QSidePanel/QSidePanel/PanelBottomSide.cpp ../QSidePanel/QSidePanel/PanelBottomSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\PanelBottomSide.o ..\QSidePanel\QSidePanel\PanelBottomSide.cpp
+
+debug/PanelLeftSide.o: ../QSidePanel/QSidePanel/PanelLeftSide.cpp ../QSidePanel/QSidePanel/PanelLeftSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\PanelLeftSide.o ..\QSidePanel\QSidePanel\PanelLeftSide.cpp
+
+debug/PanelRightSide.o: ../QSidePanel/QSidePanel/PanelRightSide.cpp ../QSidePanel/QSidePanel/PanelRightSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\PanelRightSide.o ..\QSidePanel\QSidePanel\PanelRightSide.cpp
+
+debug/PanelTopSide.o: ../QSidePanel/QSidePanel/PanelTopSide.cpp ../QSidePanel/QSidePanel/PanelTopSide.hpp \
+		../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\PanelTopSide.o ..\QSidePanel\QSidePanel\PanelTopSide.cpp
+
+debug/SidePanel.o: ../QSidePanel/QSidePanel/SidePanel.cpp ../QSidePanel/QSidePanel/SidePanel.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QScrollArea \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtguiglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtgui-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qwidget.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstring.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qchar.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrefcount.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qarraydata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringliteral.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringview.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringbuilder.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qalgorithms.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiterator.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhashfunctions.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpair.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvector.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbytearraylist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringlist.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qregexp.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qstringmatcher.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcoreevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qscopedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmetatype.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvarlengtharray.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontainerfwd.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qobject_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpaintdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpalette.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcolor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgb.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qrgba64.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qbrush.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qmatrix.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpolygon.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qregion.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdatastream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qiodevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qline.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtransform.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpainterpath.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qimage.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixelformat.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qpixmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qshareddata.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qhash.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfont.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontmetrics.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qfontinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qcursor.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qkeysequence.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qevent.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qvariant.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qdebug.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtextstream.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlocale.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qset.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcontiguouscache.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurl.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qurlquery.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfile.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qfiledevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qvector2d.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qtouchdevice.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QTimer \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasictimer.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEasingCurve \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qeasingcurve.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/qicon.h \
+		../QSidePanel/QSidePanel/SidePanelState.hpp \
+		../QSidePanel/QSidePanel/math.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QPointF \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRectF \
+		../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QDebug \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QEvent \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtGui/QResizeEvent
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\SidePanel.o ..\QSidePanel\QSidePanel\SidePanel.cpp
+
+debug/SidePanelState.o: ../QSidePanel/QSidePanel/SidePanelState.cpp ../QSidePanel/QSidePanel/SidePanelState.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\SidePanelState.o ..\QSidePanel\QSidePanel\SidePanelState.cpp
+
+debug/math.o: ../QSidePanel/QSidePanel/math.cpp ../QSidePanel/QSidePanel/math.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QPointF \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRectF \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\math.o ..\QSidePanel\QSidePanel\math.cpp
+
+debug/side_panel_helpers.o: ../QSidePanel/QSidePanel/side_panel_helpers.cpp ../QSidePanel/QSidePanel/side_panel_helpers.hpp \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QRect \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qrect.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmargins.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnamespace.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobal.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qconfig.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtcore-config.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsystemdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qprocessordetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qcompilerdetection.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qtypeinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsysinfo.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qlogging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qflags.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qbasicatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qgenericatomic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qatomic_msvc.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qglobalstatic.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qmutex.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qnumeric.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qversiontagging.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qsize.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qpoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\side_panel_helpers.o ..\QSidePanel\QSidePanel\side_panel_helpers.cpp
 
 debug/gcled.o: ../gcled.cpp ../gcled.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/QObject \
@@ -1100,6 +2548,7 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qrubberband.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qframe.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtCore/qabstractitemmodel.h \
+		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QFrame \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QGridLayout \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qgridlayout.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qlayout.h \
@@ -1113,7 +2562,6 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QPushButton \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qpushbutton.h \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QSpacerItem \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QVBoxLayout \
 		G:/RJAZ/QT/Qt_data/5.13.0/mingw73_64/include/QtWidgets/QWidget \
 		../gcled.h \
@@ -1136,6 +2584,21 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 
 debug/qrc_resources.o: debug/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_resources.o debug\qrc_resources.cpp
+
+debug/moc_PanelBottomSide.o: debug/moc_PanelBottomSide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_PanelBottomSide.o debug\moc_PanelBottomSide.cpp
+
+debug/moc_PanelLeftSide.o: debug/moc_PanelLeftSide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_PanelLeftSide.o debug\moc_PanelLeftSide.cpp
+
+debug/moc_PanelRightSide.o: debug/moc_PanelRightSide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_PanelRightSide.o debug\moc_PanelRightSide.cpp
+
+debug/moc_PanelTopSide.o: debug/moc_PanelTopSide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_PanelTopSide.o debug\moc_PanelTopSide.cpp
+
+debug/moc_SidePanel.o: debug/moc_SidePanel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_SidePanel.o debug\moc_SidePanel.cpp
 
 debug/moc_gcled.o: debug/moc_gcled.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_gcled.o debug\moc_gcled.cpp

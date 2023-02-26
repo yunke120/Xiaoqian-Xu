@@ -87,11 +87,12 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 //#define USING_DS18B20
 //#define USING_FLAMESENSOR
+#define USING_HCSR501
 //#define USING_ZP13
 //#define USING_LORA
 
 //#define USING_RELAY
-#define USING_BEEP
+//#define USING_BEEP
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

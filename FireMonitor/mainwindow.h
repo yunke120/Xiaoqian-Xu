@@ -31,7 +31,7 @@ public:
 
     void chartInit(void);
     void serialInit(void);
-
+    void tablewidgetInit(void);
 private slots:
     void slotSerialReadyRead(void);
 
