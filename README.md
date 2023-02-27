@@ -131,11 +131,20 @@ flowchart LR
 控制器STM32-->|IO|报警装置
 控制器STM32-->|IO|执行装置
 
-控制器STM32<-->|UART|通信装置LORA<-->|UART|PC上位机监控系统
+控制器STM32<-->|UART|通信装置LORA02<-->|WIFI|通信装置LORA01<-->|UART|PC上位机监控系统
 
 ```
 
 
+
+```mermaid
+flowchart LR
+
+教室节点02<--->|Lora|PC节点01
+教室节点03<--->|Lora|PC节点01
+教室节点04<--->|Lora|PC节点01
+教室节点05<--->|Lora|PC节点01
+```
 
 ## PCB
 
